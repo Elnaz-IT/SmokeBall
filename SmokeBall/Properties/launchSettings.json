@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "SmokeBall": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "MaxSearchResultItems": "100"
+      }
+    }
+  }
+}

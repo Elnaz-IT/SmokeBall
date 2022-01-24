@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="android-chrome-192x192.png" />
+    <None Remove="android-chrome-512x512.png" />
+    <None Remove="b6e0b072897469.5bf6e79950d23.gif" />
+    <None Remove="loading.gif" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MahApps.Metro" Version="2.4.9" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SmokeBall.BL\SmokeBall.BL.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="android-chrome-192x192.png" />
+    <Resource Include="android-chrome-512x512.png" />
+    <Resource Include="b6e0b072897469.5bf6e79950d23.gif" />
+    <Resource Include="loading.gif" />
+  </ItemGroup>
+
+</Project>
