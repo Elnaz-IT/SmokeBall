@@ -35,7 +35,7 @@ namespace SmokeBall.Test
         {
             var actual = scrapperService.SerachAndFindLinkLoations("expected", "www.expected.com.au");
 
-            var expected = new List<int>() { 4, 7 };
+            var expected = new List<int>() { 5, 8 };
 
             Assert.That(actual, Is.EquivalentTo(expected));
         }
