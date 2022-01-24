@@ -12,10 +12,12 @@ namespace SmokeBall.BL
             {
                 var searchResults = new List<string>();
                 var web = new WebClient();
+                var maxSearchResultItems = ConfigurationSettings.MaxSearchResultItems;
 
-                var serachUrl = $"{ConfigurationSettings.GoogleBaseURL}/search?q=" + keyWords.Replace(' ', '+');
+                var serachUrl = $"{ConfigurationSettings.GoogleBaseURL}/search?num={maxSearchResultItems}&q=" + keyWords.Replace(' ', '+');
 
-                while (searchResults.Count < ConfigurationSettings.MaxSearchResultItems)
+                //Works with google pagination and not limited to google limitation per page
+                while (searchResults.Count < maxSearchResultItems && !string.IsNullOrEmpty(serachUrl))
                 {
                     var htmlResult = web.DownloadString(serachUrl);
                     var searchResult = LinkExtractor.ExtractLinks(htmlResult);

@@ -31,11 +31,31 @@ namespace SmokeBall.Test
         }
 
         [Test]
-        public void GetResultFromScrapperServiceTest()
+        public void GetMultimpleResultFromScrapperServiceTest()
         {
             var actual = scrapperService.SerachAndFindLinkLoations("expected", "www.expected.com.au");
 
             var expected = new List<int>() { 5, 8 };
+
+            Assert.That(actual, Is.EquivalentTo(expected));
+        }
+
+        [Test]
+        public void GetSingleResultFromScrapperServiceTest()
+        {
+            var actual = scrapperService.SerachAndFindLinkLoations("expected", "www.sampleurl1.com.au");
+
+            var expected = new List<int>() { 1 };
+
+            Assert.That(actual, Is.EquivalentTo(expected));
+        }
+
+        [Test]
+        public void GetNoneResultFromScrapperServiceTest()
+        {
+            var actual = scrapperService.SerachAndFindLinkLoations("expected", "www.none.com.au");
+
+            var expected = new List<int>() {};
 
             Assert.That(actual, Is.EquivalentTo(expected));
         }

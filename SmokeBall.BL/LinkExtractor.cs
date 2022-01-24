@@ -31,12 +31,19 @@ namespace SmokeBall.BL
             try
             {
                 var nextKWLocation = html.IndexOf("aria-label=\"Next page\"");
-                var nextATagLocation = html.Substring(0, nextKWLocation).LastIndexOf("<a");
-                var nextATag = html.Substring(nextATagLocation, nextKWLocation - nextATagLocation);
-                var urlStart = nextATag.Substring(nextATag.IndexOf("/search?q="), nextATag.Length - nextATag.IndexOf("/search?q="));
+                if (nextKWLocation > 0)
+                {
+                    var nextATagLocation = html.Substring(0, nextKWLocation).LastIndexOf("<a");
+                    var nextATag = html.Substring(nextATagLocation, nextKWLocation - nextATagLocation);
+                    var urlStart = nextATag.Substring(nextATag.IndexOf("/search?q="), nextATag.Length - nextATag.IndexOf("/search?q="));
 
-                var searchUrl = ConfigurationSettings.GoogleBaseURL + urlStart.Substring(0, urlStart.IndexOf("\"")).Replace("amp;", "");
-                return searchUrl;
+                    var searchUrl = ConfigurationSettings.GoogleBaseURL + urlStart.Substring(0, urlStart.IndexOf("\"")).Replace("amp;", "");
+                    return searchUrl;
+                }
+                else
+                {
+                    return string.Empty;
+                }
             }
             catch (Exception ex)
             {

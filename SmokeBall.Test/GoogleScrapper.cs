@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using SmokeBall.BL;
 using SmokeBall.BL.Interfaces;
+using System;
 
 namespace SmokeBall.Test
 {
@@ -11,6 +12,8 @@ namespace SmokeBall.Test
         public void Setup()
         {
             scrapper = new GoogleScrapper();
+            Environment.SetEnvironmentVariable("MaxSearchResultItems", "100");
+            Environment.SetEnvironmentVariable("GoogleBaseURL", "https://www.google.com.au");
         }
 
         [Test]
