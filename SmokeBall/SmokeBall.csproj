@@ -23,6 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="android-chrome-192x192.png" />
     <Resource Include="Resources\android-chrome-192x192.png" />
     <Resource Include="Resources\android-chrome-512x512.png" />
     <Resource Include="Resources\loading.gif" />

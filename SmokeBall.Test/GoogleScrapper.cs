@@ -16,7 +16,7 @@ namespace SmokeBall.Test
         [Test]
         public void GetResultForSoftware()
         {
-            var result = scrapper.SerachKeywords("Software",10);
+            var result = scrapper.SerachKeywords("Software");
             Assert.GreaterOrEqual(result.Count,2);
         }
     }
